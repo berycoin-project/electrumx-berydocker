@@ -7,10 +7,12 @@ Dockerfile for [electrumx](https://github.com/berycoin-project/electrumx) on Ubu
 git clone https://github.com/berycoin-project/electrumx-berydocker.git
 cd electrumx-berydocker
 ```
-
-Then,Edit `env/COIN` to your coin.
+MUST:
+Edit `env/HOST` to your coin.
+Edit `env/REPORT_HOST` to your coin.
 
 Edit `env/DAEMON_URL` accordingly.Need to match your daemon.
+Edit `berycoin/berycoin.conf` accordingly.Need to match your RPCuser & RPCpassword in `env/DAEMON_URL.
 
 For AltCoins,edit your coin class in `env/coins.py`.`env/coins.py` will be append to [electrumx/lib/coins.py](https://github.com/berycoin-project/electrumx/blob/master/lib/coins.py)
 
