@@ -28,6 +28,16 @@ Or,build your special env docker image :
       docker run -v -idt electrumx
 ```
 
+Find Container ID
+```
+sudo docker ps
+```
+
+access docker container
+```
+docker exec -it <container id> bash
+```
+
 ## THANKS
 
 ### Warmly welcome all kinds of suggestions
