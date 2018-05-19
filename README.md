@@ -17,9 +17,11 @@ Edit `env/DAEMON_URL` accordingly.Need to match your daemon.
 
 Edit `berycoin/berycoin.conf` accordingly.Need to match your RPCuser & RPCpassword in `env/DAEMON_URL`.
 
+Leave others defaults
+
 your coin class in `env/coins.py`.`env/coins.py` will append to [electrumx/lib/coins.py](https://github.com/berycoin-project/electrumx/blob/master/lib/coins.py)
 
-Leave others defaults
+
 
 ### Step 2.Run
 Run from docker hub:
