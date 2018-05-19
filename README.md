@@ -25,7 +25,7 @@ Run from docker hub:
 Or,build your special env docker image :
 ```shell
       docker build -t electrumx .
-      docker run -v -idt electrumx
+      docker run -v /home/electrumx/electrumx electrumx
 ```
 
 Find Container ID
