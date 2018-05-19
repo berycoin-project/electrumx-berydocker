@@ -22,8 +22,7 @@ RUN apt-get update \
     && openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout /ssl/privkey.pem \
         -out /ssl/cert.pem \
-        -subj /CN=$COMMONNAME \
-    && chown -R electrumx:electrumx /ssl \
+        -subj /CN=$COMMONNAME \    
     && apt-get install -y software-properties-common --no-install-recommends \
     && add-apt-repository -y ppa:jonathonf/python-3.6 \
     && apt-get update \
@@ -39,6 +38,7 @@ RUN apt-get update \
     && mkdir /log /db /env \
     && groupadd -r electrumx \
     && useradd -s /bin/bash -m -g electrumx electrumx \
+    && chown -R electrumx:electrumx /ssl \
     && cd /home/electrumx \
     && git clone https://github.com/berycoin-project/berycoin.git \
     && chown -R electrumx:electrumx berycoin \
