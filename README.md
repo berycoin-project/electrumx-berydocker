@@ -29,9 +29,9 @@ Run from docker hub:
     docker run -v env:/env  -idt berycoin-project/electrumx
 ```
 
-Or,build your special env docker image :
+edit COMMONNAME and build your special env docker image :
 ```shell
-      docker build -t electrumx .
+      docker build --build-arg COMMONNAME=electrum.berycoin.com -t electrumx .
       docker run -v /home/electrumx/electrumx electrumx
 ```
 
