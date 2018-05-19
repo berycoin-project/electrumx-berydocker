@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER followtheart "followtheart@outlook.com"
+MAINTAINER bago213 "bago@live.be"
 
 RUN apt-get update \
     && apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils \
@@ -28,6 +28,11 @@ RUN apt-get update \
     && groupadd -r electrumx \
     && useradd -s /bin/bash -m -g electrumx electrumx \
     && cd /home/electrumx \
+    && git clone https://github.com/berycoin-project/berycoin.git \
+    && chown -R electrumx:electrumx berycoin \
+    && mkdir /home/electrumx/.berycoin \
+    && cd /home/electrumx \
+    && chown -R electrumx:electrumx .berycoin \
     && git clone https://github.com/berycoin-project/electrumx.git \
     && chown -R electrumx:electrumx electrumx && cd electrumx \
     && chown -R electrumx:electrumx /log /db /env \
@@ -38,8 +43,15 @@ USER electrumx
 VOLUME /db /log /env
 
 COPY env/* /env/
+COPY berycoin/* /home/electrumx/.berycoin/
 
 RUN cd ~ \
+    && cd /home/electrumx/berycoin \
+    && git checkout 0.15 \
+    && /home/electrumx/berycoin/autogen.sh \
+    && /home/electrumx/berycoin/configure \
+    && make -j4 \
+    && cd ~ \
     && mkdir -p ~/service ~/scripts/electrumx \
     && cp -R ~/electrumx/contrib/daemontools/* ~/scripts/electrumx \
     && chmod +x ~/scripts/electrumx/run \
