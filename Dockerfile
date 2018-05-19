@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
 MAINTAINER bago213 "bago@live.be"
 
+ARG COMMONNAME
+
 RUN apt-get update \
     && apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils \
     && apt-get install -y libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev \
@@ -20,7 +22,7 @@ RUN apt-get update \
     && openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout /ssl/privkey.pem \
         -out /ssl/cert.pem \
-        -subj /CN=electrum.resteemexposure.com    
+        -subj /CN=$COMMONNAME
     && apt-get install -y software-properties-common --no-install-recommends \
     && add-apt-repository -y ppa:jonathonf/python-3.6 \
     && apt-get update \
