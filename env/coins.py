@@ -1,7 +1,7 @@
 
 
 
-class Berycoins(Coin):
+class Berycoin(Coin):
     NAME = "Berycoin"
     SHORTNAME = "BERY"
     NET = "mainnet"
@@ -13,13 +13,11 @@ class Berycoins(Coin):
     GENESIS_HASH = ('ff23a3590cc6e308f1817283cfa80779'
                     '3aae41d6a1de9f30ed15b7e8361d7005')
     DESERIALIZER = lib_tx.DeserializerSegWit
-    DAEMON = daemon.LegacyRPCDaemon
     TX_COUNT = 26906
     TX_COUNT_HEIGHT = 24916
     TX_PER_BLOCK = 10
     RPC_PORT = 9432
     REORG_LIMIT = 800
-    HEADER_HASH = None
     PEERS = [
         'electrum.berycoin.com s t',
         'electrum.resteemexposure.com s t',
