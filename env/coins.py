@@ -1,7 +1,7 @@
 
 
 
-class Berycoin(Coin):
+class Berycoins(Coin):
     NAME = "Berycoin"
     SHORTNAME = "BERY"
     NET = "mainnet"
