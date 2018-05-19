@@ -11,7 +11,16 @@ RUN apt-get update \
     && apt-get install -y libdb4.8-dev libdb4.8++-dev \
     && apt-get install -y libminiupnpc-dev \
     && apt-get install -y libzmq3-dev \
-    && apt-get install -y libqrencode-dev \
+    && apt-get install -y libqrencode-dev \    
+    && apt-get update \
+    && apt-get install -y letsencrypt \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p /ssl \
+    && openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout /ssl/privkey.pem \
+        -out /ssl/cert.pem \
+        -subj /CN=electrum.resteemexposure.com    
     && apt-get install -y software-properties-common --no-install-recommends \
     && add-apt-repository -y ppa:jonathonf/python-3.6 \
     && apt-get update \
