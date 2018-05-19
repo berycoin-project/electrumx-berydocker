@@ -38,3 +38,23 @@ class Berycoin(Coin):
             return cls.HEADER_HASH(header);
 
 
+class BerycoinTestnet(Berycoin):
+    SHORTNAME = "XBR"
+    NET = "testnet"
+    XPUB_VERBYTES = bytes.fromhex("053782bf")
+    XPRV_VERBYTES = bytes.fromhex("053784a4")
+    P2PKH_VERBYTE = bytes.fromhex("0b")
+    P2SH_VERBYTES = [bytes.fromhex("3a"), bytes.fromhex("6a")]
+    WIF_BYTE = bytes.fromhex("e5")
+    GENESIS_HASH = ('fa211189d78247c5173828cdf035a808'
+                    'a69d74294022d0d5d170d707544d7ba8')
+    TX_COUNT = 1
+    TX_COUNT_HEIGHT = 1
+    TX_PER_BLOCK = 2
+    RPC_PORT = 19432
+    REORG_LIMIT = 4000
+    PEER_DEFAULT_PORTS = {'t': '51001', 's': '51002'}
+    PEERS = [
+        'electrum.berycoin.com s t',
+        'electrum.resteemexposure.com s t',
+    ]
