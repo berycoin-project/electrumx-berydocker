@@ -45,7 +45,7 @@ access docker container
 sudo docker exec -it <container id> bash
 ```
 
-access docker container
+stop docker container
 ```
 sudo docker stop <container id>
 ```
