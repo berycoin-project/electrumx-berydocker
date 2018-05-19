@@ -49,13 +49,16 @@ RUN apt-get update \
     && chown -R electrumx:electrumx electrumx && cd electrumx \
     && chown -R electrumx:electrumx /log /db /env \
     && python3.6 setup.py install
-    
+
+COPY system/* /etc/systemd/system/
+
 USER electrumx
 
 VOLUME /db /log /env
 
 COPY env/* /env/
 COPY berycoin/* /home/electrumx/.berycoin/
+
 
 RUN cd ~ \
     && cd /home/electrumx/berycoin \
