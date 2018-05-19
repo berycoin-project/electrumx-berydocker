@@ -4,8 +4,8 @@ Dockerfile for [electrumx](https://github.com/berycoin-project/electrumx) on Ubu
 ## Usage
 ### Step 1. Configuration
 ```
-git clone https://github.com/berycoin-project/electrumx-docker.git
-cd electrumx-docker
+git clone https://github.com/berycoin-project/electrumx-berydocker.git
+cd electrumx-berydocker
 ```
 
 Then,Edit `env/COIN` to your coin.
