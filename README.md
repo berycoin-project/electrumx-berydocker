@@ -35,7 +35,12 @@ sudo docker ps
 
 access docker container
 ```
-docker exec -it <container id> bash
+sudo docker exec -it <container id> bash
+```
+
+access docker container
+```
+sudo docker stop <container id>
 ```
 
 ## THANKS
