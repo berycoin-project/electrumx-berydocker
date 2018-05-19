@@ -22,7 +22,8 @@ RUN apt-get update \
     && openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout /ssl/privkey.pem \
         -out /ssl/cert.pem \
-        -subj /CN=$COMMONNAME
+        -subj /CN=$COMMONNAME \
+    && chown -R electrumx:electrumx /ssl \
     && apt-get install -y software-properties-common --no-install-recommends \
     && add-apt-repository -y ppa:jonathonf/python-3.6 \
     && apt-get update \
