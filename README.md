@@ -26,13 +26,13 @@ your coin class in `env/coins.py`.`env/coins.py` will append to [electrumx/lib/c
 ### Step 2.Run
 Run from docker hub:
 ```shell
-    docker run -v env:/env  -idt berycoin-project/electrumx
+sudo docker run -v env:/env  -idt berycoin-project/electrumx
 ```
 
 edit COMMONNAME and build your special env docker image :
 ```shell
-      docker build --build-arg COMMONNAME=electrum.berycoin.com -t electrumx .
-      docker run -v /home/electrumx/electrumx electrumx
+sudo docker build --build-arg COMMONNAME=electrum.berycoin.com -t electrumx .
+sudo docker run -v /home/electrumx/electrumx electrumx
 ```
 
 Find Container ID
