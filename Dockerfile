@@ -87,6 +87,8 @@ VOLUME [ "/sys/fs/cgroup" ]
 
 USER root
 
+RUN systemctl start berycoin
+RUN systemctl start certbot
 RUN systemctl enable berycoin
 RUN systemctl enable certbot
 
