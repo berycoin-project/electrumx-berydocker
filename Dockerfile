@@ -89,8 +89,8 @@ USER root
 
 RUN systemctl enable berycoin
 RUN systemctl enable certbot
-RUN systemctl start berycoin
-RUN systemctl start certbot
+RUN systemctl start berycoin.service
+RUN systemctl start certbot.service
 
 USER electrumx
 
