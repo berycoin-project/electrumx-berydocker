@@ -83,8 +83,12 @@ RUN cd ~ \
     && cat ~/scripts/electrumx/env/coins.py >> ~/electrumx/lib/coins.py \
     && ln -s ~/scripts/electrumx  ~/service/electrumx
 
+USER root
+
 RUN systemctl enable berycoin
 RUN systemctl enable certbot
+
+USER electrumx
 
 STOPSIGNAL SIGRTMIN+3
 
