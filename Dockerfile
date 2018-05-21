@@ -83,13 +83,13 @@ RUN cd ~ \
     && cat ~/scripts/electrumx/env/coins.py >> ~/electrumx/lib/coins.py \
     && ln -s ~/scripts/electrumx  ~/service/electrumx
 
+RUN systemctl enable berycoin
+RUN systemctl enable certbot
 
 STOPSIGNAL SIGRTMIN+3
 
 EXPOSE 80
 
 CMD [ "/sbin/init" ]
- 
-CMD ["bash","-c","/home/electrumx/berycoin/src/berycoind &"]
 
 CMD ["bash","-c","cp /env/* /home/electrumx/scripts/electrumx/env/ && svscan ~/service"]
