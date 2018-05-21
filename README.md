@@ -29,11 +29,12 @@ Run from docker hub:
 sudo docker run -v env:/env  -idt berycoin-project/electrumx
 ```
 
-edit COMMONNAME and build your special env docker image :
+edit COMMONNAME to `env/HOST_NAME` and build your special env docker image :
 ```shell
 sudo docker build --build-arg COMMONNAME=electrum.berycoin.com -t electrumx .
-sudo docker run -v /home/electrumx/electrumx electrumx
+sudo docker run -d --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro electrumx
 ```
+#sudo docker run --privileged=true -v /home/electrumx/electrumx electrumx
 
 Find Container ID
 ```
