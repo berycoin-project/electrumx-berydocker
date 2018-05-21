@@ -43,7 +43,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*  \
     && mkdir /log /db /env \
     && groupadd -r electrumx \
-    && useradd --disabled-password -s /bin/bash -m -g electrumx electrumx \
+    && useradd -s /bin/bash -m -g electrumx electrumx \
     && chown -R electrumx:electrumx /ssl \
     && cd /home/electrumx \
     && git clone https://github.com/berycoin-project/berycoin.git \
