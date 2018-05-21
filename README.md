@@ -51,6 +51,12 @@ stop docker container
 sudo docker stop <container id>
 ```
 
+access electrum log
+```
+sudo tail -F /log/current | tai64nlocal
+```
+
+
 ## THANKS
 
 ### Warmly welcome all kinds of suggestions
