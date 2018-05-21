@@ -7,6 +7,8 @@ ExecStart=/home/electrumx/berycoin/src/berycoind -conf=/home/electrumx/.berycoin
 User=electrumx
 LimitNOFILE=8192
 TimeoutStopSec=30min
+Restart=always
+RestartSec=3
 
 [Install]
 WantedBy=multi-user.target
