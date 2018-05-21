@@ -10,6 +10,7 @@ RUN apt-get install sudo
 RUN apt-get install systemd
 
 RUN apt-get update \
+    && apt-get -y install cron
     && apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils \
     && apt-get install -y libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev \
     && apt-get install -y libboost-all-dev \
@@ -56,7 +57,10 @@ RUN apt-get update \
     && chown -R electrumx:electrumx /log /db /env \
     && python3.6 setup.py install
 
-COPY system/* /etc/systemd/system/
+RUN touch /var/log/cron.log \
+    && chown -R electrumx:electrumx /var/log/cron.log
+
+RUN (crontab -l ; echo "0 0 * 1 * certbot renew --quiet --agree-tos >> /var/log/cron.log") | crontab
 
 USER electrumx
 
@@ -87,16 +91,13 @@ VOLUME [ "/sys/fs/cgroup" ]
 
 USER root
 
-RUN systemctl enable berycoin
-RUN systemctl enable certbot
-RUN systemctl start berycoin.service
-RUN systemctl start certbot.service
-
 USER electrumx
 
 STOPSIGNAL SIGRTMIN+3
 
 EXPOSE 50002 50001 9432 9947
+
+CMD cron && tail -f /var/log/cron.log
 
 CMD [ "/sbin/init" ]
 
