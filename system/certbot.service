@@ -8,4 +8,4 @@ ExecStart=/usr/bin/certbot renew --quiet --agree-tos
 User=electrumx
 
 [Install]
-WantedBy=certbot.target
+WantedBy=timers.target
