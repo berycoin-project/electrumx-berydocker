@@ -83,10 +83,12 @@ RUN cd ~ \
     && cat ~/scripts/electrumx/env/coins.py >> ~/electrumx/lib/coins.py \
     && ln -s ~/scripts/electrumx  ~/service/electrumx
 
+VOLUME [ "/sys/fs/cgroup" ]
 
+USER root
 
-RUN sudo systemctl enable berycoin
-RUN sudo systemctl enable certbot
+RUN systemctl enable berycoin
+RUN systemctl enable certbot
 
 USER electrumx
 
