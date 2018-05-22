@@ -87,10 +87,6 @@ RUN cd ~ \
 
 VOLUME [ "/sys/fs/cgroup" ]
 
-USER root
-
-USER electrumx
-
 STOPSIGNAL SIGRTMIN+3
 
 EXPOSE 50002 50001 9432 9947
