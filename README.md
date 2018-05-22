@@ -33,7 +33,7 @@ edit COMMONNAME to `env/HOST_NAME` and build your special env docker image :
 ```shell
 sudo docker build --build-arg COMMONNAME=electrum.berycoin.com -t electrumx .
 sudo docker run -d --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro electrumx
-sudo docker run -it --name=tmp2 --cap-add=SYS_ADMIN -e "container=docker" -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock electrumx /sbin/init
+sudo docker run -it -d --cap-add=SYS_ADMIN -e "container=docker" -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock electrumx /sbin/init
 
 ```
 #sudo docker run --privileged=true -v /home/electrumx/electrumx electrumx
