@@ -7,8 +7,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 
 RUN apt-get install sudo
 
-RUN apt-get install systemd
-
 RUN apt-get update \
     && apt-get -y install cron
     && apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils \
