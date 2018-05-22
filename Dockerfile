@@ -99,6 +99,8 @@ EXPOSE 50002 50001 9432 9947
 
 CMD cron && tail -f /var/log/cron.log
 
+CMD /home/electrumx/berycoin/src/berycoind &
+
 CMD [ "/sbin/init" ]
 
 CMD ["bash","-c","cp /env/* /home/electrumx/scripts/electrumx/env/ && svscan ~/service"]
